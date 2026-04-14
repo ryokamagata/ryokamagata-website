@@ -19,12 +19,16 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-  font-family: var(--font-body-ja);
+  font-family: var(--font-body-ja), "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background-color: #FAFAF8;
   color: #2C2C2C;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,7 +39,7 @@ body {
 }
 
 .font-heading {
-  font-family: var(--font-heading-ja);
+  font-family: var(--font-heading-ja), "Hiragino Mincho ProN", "Yu Mincho", serif;
 }
 
 .font-heading-en {
@@ -47,7 +51,7 @@ body {
 }
 
 :lang(en) body {
-  font-family: var(--font-body-en);
+  font-family: var(--font-body-en), -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 :lang(en) .font-heading {
@@ -74,7 +78,15 @@ body {
   color: white;
 }
 
-/* Animations */
+/* ============================================
+   ANIMATIONS WITH BULLETPROOF FALLBACK
+   ============================================
+   Strategy: use a CSS animation with a delay that forces
+   content to be visible after N seconds, REGARDLESS of
+   whether JavaScript runs. If JS works, it overrides with
+   its own animation. If JS fails, content still appears.
+   ============================================ */
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -96,6 +108,18 @@ body {
   50% { transform: translateY(8px); }
 }
 
+/* Safety-net animation: forces content visible after 2s even if JS fails */
+@keyframes force-visible {
+  from {
+    opacity: var(--fv-from-opacity, 0);
+    transform: var(--fv-from-transform, none);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .animate-fade-up {
   opacity: 0;
   animation: fade-up 1s ease-out forwards;
@@ -110,28 +134,34 @@ body {
   animation: bounce-slow 2s ease-in-out infinite;
 }
 
-/* Scroll-triggered animations */
+/* Scroll-triggered animations
+   IMPORTANT: uses a CSS safety-net animation that will force
+   opacity to 1 after 2s even if JavaScript never runs. */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: force-visible 0.6s ease-out 2s forwards;
 }
 
 .animate-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
+  animation: none;
 }
 
-/* Slide from left */
+/* Slide from left - same safety net */
 .animate-slide-left {
   opacity: 0;
   transform: translateX(-30px);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: force-visible 0.6s ease-out 2s forwards;
 }
 
 .animate-slide-left.is-visible {
   opacity: 1;
   transform: translateX(0);
+  animation: none;
 }
 
 /* Gold shimmer for stat numbers */
@@ -150,13 +180,16 @@ body {
   }
 }
 
-/* Smoother scroll animation easing */
-.animate-on-scroll {
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Ensure content is visible for users who prefer reduced motion */
+/* Reduced motion: show everything immediately */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .animate-fade-up,
   .animate-fade-in,
   .animate-on-scroll,
@@ -168,7 +201,7 @@ body {
   }
 }
 
-/* JS-not-ready fallback: show content after a timeout via body class */
+/* No-JS fallback (for <noscript> or if body.no-js class remains) */
 body.no-js .animate-fade-up,
 body.no-js .animate-fade-in,
 body.no-js .animate-on-scroll,

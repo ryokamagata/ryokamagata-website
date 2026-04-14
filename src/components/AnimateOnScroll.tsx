@@ -18,24 +18,41 @@ export default function AnimateOnScroll({
     const el = ref.current;
     if (!el) return;
 
-    // Fallback for browsers without IntersectionObserver (some in-app browsers)
+    // Absolute safety net: show content within 2s no matter what.
+    // This runs before/parallel to the IntersectionObserver logic.
+    const safetyTimer = window.setTimeout(() => {
+      setVisible(true);
+    }, 2000);
+
+    // Fallback for browsers without IntersectionObserver (old in-app browsers)
     if (typeof IntersectionObserver === "undefined") {
-      setTimeout(() => setVisible(true), delay);
-      return;
+      window.setTimeout(() => setVisible(true), Math.max(delay, 0));
+      return () => {
+        window.clearTimeout(safetyTimer);
+      };
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0, rootMargin: "0px" }
-    );
+    let observer: IntersectionObserver | null = null;
+    try {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            window.setTimeout(() => setVisible(true), delay);
+            observer?.unobserve(el);
+          }
+        },
+        { threshold: 0, rootMargin: "0px" }
+      );
+      observer.observe(el);
+    } catch {
+      // If IntersectionObserver constructor throws, defer to safety timer
+      window.setTimeout(() => setVisible(true), 0);
+    }
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      window.clearTimeout(safetyTimer);
+      observer?.disconnect();
+    };
   }, [delay]);
 
   return (
