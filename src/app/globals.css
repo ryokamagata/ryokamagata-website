@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gold: #C5A55A;
+  --color-gold-light: #D4B96A;
+  --color-charcoal: #2C2C2C;
+  --color-charcoal-light: #3D3D3D;
+  --color-off-white: #FAFAF8;
+  --color-warm-gray: #F5F5F3;
+  --color-dark-bg: #0A0A0A;
+  --color-dark-surface: #141414;
+  --color-dark-border: #262626;
+
+  --font-heading-en: "Cormorant Garamond", serif;
+  --font-body-en: "DM Sans", sans-serif;
+  --font-heading-ja: "Noto Serif JP", serif;
+  --font-body-ja: "Noto Sans JP", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body-ja);
+  background-color: #FAFAF8;
+  color: #2C2C2C;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0A0A0A;
+    color: #F5F5F5;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-heading-ja);
+}
+
+.font-heading-en {
+  font-family: var(--font-heading-en);
+}
+
+.font-body-en {
+  font-family: var(--font-body-en);
+}
+
+:lang(en) body {
+  font-family: var(--font-body-en);
+}
+
+:lang(en) .font-heading {
+  font-family: var(--font-heading-en);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5A55A;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: #C5A55A;
+  color: white;
+}
+
+/* Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 1s ease-out forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide from left */
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Gold shimmer for stat numbers */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.stat-number {
+  color: #2C2C2C;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stat-number {
+    color: #F5F5F5;
+  }
+}
+
+/* Smoother scroll animation easing */
+.animate-on-scroll {
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }

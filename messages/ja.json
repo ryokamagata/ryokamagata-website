@@ -1,0 +1,230 @@
+{
+  "nav": {
+    "about": "About",
+    "business": "Business",
+    "media": "Media",
+    "philosophy": "Philosophy",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "鎌形 諒",
+    "nameEn": "RYO KAMAGATA",
+    "title": "Founder & CEO, P.B Group Holdings",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "heading": "About",
+    "intro": "1995年生まれ、千葉県出身。24歳でAI TOKYOを創業し、美容業界に新しい価値観を持ち込んだ。現在はP.Bグループホールディングス代表として、美容室・不動産・建築・プロダクト・AIと多角的に事業を展開。目指すは100億企業。",
+    "stats": {
+      "stores": "店舗展開",
+      "storesValue": "11",
+      "companies": "グループ企業",
+      "companiesValue": "6",
+      "domains": "事業領域",
+      "domainsValue": "5",
+      "goal": "目標",
+      "goalValue": "100",
+      "goalSuffix": "億"
+    }
+  },
+  "timeline": {
+    "heading": "History",
+    "items": [
+      {
+        "year": "2016",
+        "text": "エビスビューティカレッジ卒業、OCEAN TOKYO入社"
+      },
+      {
+        "year": "2018",
+        "text": "OCEAN TOKYO最速（2年）でスタイリストデビュー、月平均売上460万円超"
+      },
+      {
+        "year": "2019",
+        "text": "トップスタイリスト昇格、マネージャー兼任"
+      },
+      {
+        "year": "2020",
+        "text": "OCEAN TOKYO史上初のディレクターに昇格"
+      },
+      {
+        "year": "2020",
+        "text": "株式会社P.B設立、AI TOKYO 渋谷1号店オープン"
+      },
+      {
+        "year": "2021",
+        "text": "AI TOKYO 渋谷2号店オープン"
+      },
+      {
+        "year": "2021",
+        "text": "KAMI CHARISMA 2022 Greaty∞部門受賞"
+      },
+      {
+        "year": "2022",
+        "text": "経営計画発表会、5年ビジョン発表"
+      },
+      {
+        "year": "2022",
+        "text": "AI TOKYO 横浜店オープン"
+      },
+      {
+        "year": "2023",
+        "text": "AI TOKYO 渋谷3号店・池袋店オープン"
+      },
+      {
+        "year": "2023",
+        "text": "自社ヘアケアブランド「AI me」Makuakeで発売、目標400%達成"
+      },
+      {
+        "year": "2023",
+        "text": "AI TOKYO 名古屋店オープン"
+      },
+      {
+        "year": "2024",
+        "text": "美容室経営者向けソリューション事業開始"
+      },
+      {
+        "year": "2024",
+        "text": "ブランドシェア1号店オープン"
+      },
+      {
+        "year": "2024",
+        "text": "株式会社P.B Real Estate 設立（不動産事業参入）"
+      },
+      {
+        "year": "2024",
+        "text": "AI TOKYO 名古屋2号店オープン"
+      },
+      {
+        "year": "2025",
+        "text": "P.Bグループホールディングス体制確立"
+      },
+      {
+        "year": "2025",
+        "text": "株式会社unique 参画（建築事業）"
+      },
+      {
+        "year": "2025",
+        "text": "aisalon事業始動（AI × サロンDX）"
+      },
+      {
+        "year": "2025",
+        "text": "ams by AITOKYO オープン（アイラッシュ＆アイブロウ）"
+      },
+      {
+        "year": "2026",
+        "text": "ブランドシェア2号店オープン"
+      },
+      {
+        "year": "2026",
+        "text": "グループ6社・11店舗体制、年商100億円規模の総合企業グループへ"
+      }
+    ]
+  },
+  "business": {
+    "heading": "Business",
+    "items": {
+      "salon": {
+        "name": "AITOKYO",
+        "category": "サロン事業",
+        "description": "渋谷・横浜・名古屋に展開するヘアサロン。直営8店舗、ブランドシェア2店舗、アイラッシュアイブロウ1店舗の計11店舗体制。口コミ評価4.91、リピート率73%超。メンズ・レディース両対応の総合サロンブランド"
+      },
+      "product": {
+        "name": "P.B Product",
+        "category": "プロダクト事業",
+        "description": "自社開発ヘアケアブランド「AI me」の企画・製造・販売。シャンプー・トリートメント・オイル・Waxなど商品ラインナップを拡充中。高収益モデルで、D2C（自社EC）を軸に展開"
+      },
+      "realestate": {
+        "name": "P.B Real Estate",
+        "category": "不動産事業",
+        "description": "店舗・オフィス・住宅など幅広い物件を扱う総合不動産事業。仲介を軸に、サブリース・売買・プロパティマネジメント（PM）まで展開。美容室に限らず飲食・物販・オフィスなど多業種の物件を手がけ、将来的にはデベロッパー機能の獲得を目指す"
+      },
+      "architecture": {
+        "name": "unique",
+        "category": "建築事業",
+        "description": "新築・大規模修繕・内装設計・施工管理を手がける総合建築会社。美容室・飲食・物販・オフィス・住宅まで幅広い領域に対応し、デザイン性・スピード・柔軟な対応力を強みとする。グループの収益柱のひとつ"
+      },
+      "ai": {
+        "name": "aisalon",
+        "category": "AI / Tech",
+        "description": "AI技術を活用したサロン業務のデジタルトランスフォーメーション。業界トップクラスのIT活用・DX推進で、美容室経営の仕組み化・効率化を実現"
+      },
+      "advisory": {
+        "name": "Advisory",
+        "category": "顧問・オンラインサロン事業",
+        "description": "経営者向けオンラインアカデミー、鎌形個別顧問契約を展開。経営者育成から経営課題の解決まで、業界の人材・経営課題をトータルで支援"
+      }
+    }
+  },
+  "group": {
+    "heading": "Group",
+    "holdings": "P.B Group Holdings",
+    "companies": [
+      {
+        "name": "AITOKYO",
+        "role": "サロン事業"
+      },
+      {
+        "name": "P.B Product",
+        "role": "プロダクト事業"
+      },
+      {
+        "name": "P.B Real Estate",
+        "role": "不動産事業"
+      },
+      {
+        "name": "unique",
+        "role": "建築事業"
+      },
+      {
+        "name": "aisalon",
+        "role": "AI / Tech"
+      },
+      {
+        "name": "Advisory",
+        "role": "顧問・教育事業"
+      }
+    ]
+  },
+  "video": {
+    "heading": "Movie",
+    "description": "インタビュー・メディア出演"
+  },
+  "media": {
+    "heading": "Media & Press",
+    "filterAll": "すべて",
+    "filterArticle": "Web記事",
+    "filterBook": "書籍",
+    "filterAward": "受賞",
+    "filterMagazine": "雑誌"
+  },
+  "philosophy": {
+    "heading": "Philosophy",
+    "missionLabel": "MISSION",
+    "mission": "関わる全ての人の理想を実現する。",
+    "visionLabel": "VISION",
+    "vision": "人の可能性で、世界を変える。",
+    "creedLabel": "経営理念",
+    "creed": "お客さん、従業員、社会、全てを幸せに導く。",
+    "valueLabel": "VALUE",
+    "value1": "誠実 – Integrity",
+    "value2": "挑戦 – Challenge",
+    "value3": "スピード – Speed"
+  },
+  "recruit": {
+    "heading": "Recruit",
+    "title": "共に働きたい仲間を募集しています",
+    "description": "P.Bグループホールディングスでは、美容師・アシスタント・レセプション・建築現場監督・不動産営業・バックオフィス・総務・マーケター・エンジニアなど、幅広い職種で人材を募集しています。",
+    "cta": "採用情報を見る",
+    "dm": "InstagramでDM"
+  },
+  "contact": {
+    "heading": "Contact",
+    "instagram": "Instagram",
+    "official": "AI TOKYO 公式サイト",
+    "litlink": "lit.link",
+    "email": "お問い合わせ"
+  },
+  "footer": {
+    "copyright": "© 2026 RYO KAMAGATA. All rights reserved."
+  }
+}

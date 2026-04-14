@@ -1,0 +1,230 @@
+{
+  "nav": {
+    "about": "About",
+    "business": "Business",
+    "media": "Media",
+    "philosophy": "Philosophy",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "RYO KAMAGATA",
+    "nameEn": "RYO KAMAGATA",
+    "title": "Founder & CEO, P.B Group Holdings",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "heading": "About",
+    "intro": "Born in 1995, Chiba, Japan. Founded AI TOKYO at 24, bringing a new paradigm to the beauty industry. Now leads P.B Group Holdings across salon, real estate, architecture, product, and AI ventures. Building toward a ¥10B enterprise.",
+    "stats": {
+      "stores": "Locations",
+      "storesValue": "11",
+      "companies": "Group Companies",
+      "companiesValue": "6",
+      "domains": "Business Domains",
+      "domainsValue": "5",
+      "goal": "Revenue Goal",
+      "goalValue": "100",
+      "goalSuffix": "億"
+    }
+  },
+  "timeline": {
+    "heading": "History",
+    "items": [
+      {
+        "year": "2016",
+        "text": "Graduated Ebisu Beauty College, joined OCEAN TOKYO"
+      },
+      {
+        "year": "2018",
+        "text": "Fastest stylist debut at OCEAN TOKYO (2 years), monthly avg. revenue over ¥4.6M"
+      },
+      {
+        "year": "2019",
+        "text": "Promoted to Top Stylist & Manager"
+      },
+      {
+        "year": "2020",
+        "text": "First-ever Director promotion at OCEAN TOKYO"
+      },
+      {
+        "year": "2020",
+        "text": "Founded P.B Inc., opened AI TOKYO Shibuya flagship"
+      },
+      {
+        "year": "2021",
+        "text": "Opened AI TOKYO Shibuya 2nd location"
+      },
+      {
+        "year": "2021",
+        "text": "Won KAMI CHARISMA 2022 Greaty∞ Award"
+      },
+      {
+        "year": "2022",
+        "text": "Management strategy presentation, 5-year vision announced"
+      },
+      {
+        "year": "2022",
+        "text": "Opened AI TOKYO Yokohama"
+      },
+      {
+        "year": "2023",
+        "text": "Opened AI TOKYO Shibuya 3rd & Ikebukuro locations"
+      },
+      {
+        "year": "2023",
+        "text": "Launched haircare brand 'AI me' on Makuake, 400% funded"
+      },
+      {
+        "year": "2023",
+        "text": "Opened AI TOKYO Nagoya"
+      },
+      {
+        "year": "2024",
+        "text": "Started salon owner solutions business"
+      },
+      {
+        "year": "2024",
+        "text": "Opened Brand Share location #1"
+      },
+      {
+        "year": "2024",
+        "text": "Founded P.B Real Estate Inc."
+      },
+      {
+        "year": "2024",
+        "text": "Opened AI TOKYO Nagoya 2nd location"
+      },
+      {
+        "year": "2025",
+        "text": "Established P.B Group Holdings structure"
+      },
+      {
+        "year": "2025",
+        "text": "Acquired unique Inc. (architecture)"
+      },
+      {
+        "year": "2025",
+        "text": "Launched aisalon (AI × Salon DX)"
+      },
+      {
+        "year": "2025",
+        "text": "Opened ams by AITOKYO (eyelash & eyebrow)"
+      },
+      {
+        "year": "2026",
+        "text": "Opened Brand Share location #2"
+      },
+      {
+        "year": "2026",
+        "text": "6 companies, 11 locations — building a ¥10B diversified enterprise group"
+      }
+    ]
+  },
+  "business": {
+    "heading": "Business",
+    "items": {
+      "salon": {
+        "name": "AITOKYO",
+        "category": "Salon",
+        "description": "Hair salons across Tokyo, Yokohama & Nagoya. 8 direct, 2 brand-share, 1 eyelash-eyebrow — 11 total locations. 4.91 review rating, 73%+ repeat rate. Full-service salon brand for both men and women"
+      },
+      "product": {
+        "name": "P.B Product",
+        "category": "Product",
+        "description": "In-house haircare brand 'AI me' — planning, manufacturing & sales. Expanding lineup: shampoo, treatment, oil, wax. High-margin model, D2C (own EC) as the primary channel"
+      },
+      "realestate": {
+        "name": "P.B Real Estate",
+        "category": "Real Estate",
+        "description": "Full-service real estate covering stores, offices, and residential properties. Brokerage as core, expanding into sublease, sales, and property management. Handling diverse property types across F&B, retail, office, and more — aiming to build developer capabilities"
+      },
+      "architecture": {
+        "name": "unique",
+        "category": "Architecture",
+        "description": "Full-service construction: new builds, large-scale renovation, interior design, and construction management. Covering salons, F&B, retail, offices, and residential with strengths in design, speed, and flexibility. A key profit pillar of the group"
+      },
+      "ai": {
+        "name": "aisalon",
+        "category": "AI / Tech",
+        "description": "AI-powered salon digital transformation. Industry-leading IT adoption and DX, enabling systematized and efficient salon operations"
+      },
+      "advisory": {
+        "name": "Advisory",
+        "category": "Advisory & Online Academy",
+        "description": "Online academy for salon owners and Kamagata's personal advisory. End-to-end support from management training to solving business challenges"
+      }
+    }
+  },
+  "group": {
+    "heading": "Group",
+    "holdings": "P.B Group Holdings",
+    "companies": [
+      {
+        "name": "AITOKYO",
+        "role": "Salon"
+      },
+      {
+        "name": "P.B Product",
+        "role": "Product"
+      },
+      {
+        "name": "P.B Real Estate",
+        "role": "Real Estate"
+      },
+      {
+        "name": "unique",
+        "role": "Architecture"
+      },
+      {
+        "name": "aisalon",
+        "role": "AI / Tech"
+      },
+      {
+        "name": "Advisory",
+        "role": "Advisory & Education"
+      }
+    ]
+  },
+  "video": {
+    "heading": "Movie",
+    "description": "Interviews & Media Appearances"
+  },
+  "media": {
+    "heading": "Media & Press",
+    "filterAll": "All",
+    "filterArticle": "Articles",
+    "filterBook": "Books",
+    "filterAward": "Awards",
+    "filterMagazine": "Magazines"
+  },
+  "philosophy": {
+    "heading": "Philosophy",
+    "missionLabel": "MISSION",
+    "mission": "Realize the ideals of everyone we touch.",
+    "visionLabel": "VISION",
+    "vision": "Change the world through human potential.",
+    "creedLabel": "CREED",
+    "creed": "Lead customers, employees, and society to happiness.",
+    "valueLabel": "VALUE",
+    "value1": "Integrity",
+    "value2": "Challenge",
+    "value3": "Speed"
+  },
+  "recruit": {
+    "heading": "Recruit",
+    "title": "Join us — we are looking for teammates",
+    "description": "P.B Group Holdings is hiring across all divisions: hairdressers, assistants, reception, construction managers, real estate sales, back-office, general affairs, marketers, engineers, and more.",
+    "cta": "View Openings",
+    "dm": "DM on Instagram"
+  },
+  "contact": {
+    "heading": "Contact",
+    "instagram": "Instagram",
+    "official": "AI TOKYO Official",
+    "litlink": "lit.link",
+    "email": "Contact Us"
+  },
+  "footer": {
+    "copyright": "© 2026 RYO KAMAGATA. All rights reserved."
+  }
+}
