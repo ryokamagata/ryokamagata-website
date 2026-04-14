@@ -18,6 +18,12 @@ export default function AnimateOnScroll({
     const el = ref.current;
     if (!el) return;
 
+    // Fallback for browsers without IntersectionObserver (some in-app browsers)
+    if (typeof IntersectionObserver === "undefined") {
+      setTimeout(() => setVisible(true), delay);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

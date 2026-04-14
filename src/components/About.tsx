@@ -15,6 +15,13 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Fallback for browsers without IntersectionObserver (some in-app browsers)
+    if (typeof IntersectionObserver === "undefined") {
+      setStarted(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started) {

@@ -76,11 +76,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale: isJa ? "ja_JP" : "en_US",
       alternateLocale: isJa ? "en_US" : "ja_JP",
       type: "website",
+      images: [
+        {
+          url: `${BASE_URL}/images/hero.jpg`,
+          width: 1200,
+          height: 630,
+          alt: isJa ? "鎌形諒 - P.B Group Holdings" : "Ryo Kamagata - P.B Group Holdings",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image" as const,
       title,
       description,
+      images: [`${BASE_URL}/images/hero.jpg`],
     },
   };
 }
@@ -185,6 +194,8 @@ export default async function LocaleLayout({
       className={`${cormorant.variable} ${dmSans.variable} ${notoSerifJP.variable} ${notoSansJP.variable}`}
     >
       <head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <JsonLd locale={locale} />
       </head>
       <body className="min-h-screen bg-off-white dark:bg-dark-bg text-charcoal dark:text-gray-100 antialiased">
