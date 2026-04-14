@@ -198,7 +198,20 @@ export default async function LocaleLayout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <JsonLd locale={locale} />
       </head>
-      <body className="min-h-screen bg-off-white dark:bg-dark-bg text-charcoal dark:text-gray-100 antialiased">
+      <body className="no-js min-h-screen bg-off-white dark:bg-dark-bg text-charcoal dark:text-gray-100 antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.body.classList.remove('no-js');",
+          }}
+        />
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                ".animate-fade-up,.animate-fade-in,.animate-on-scroll,.animate-slide-left{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}",
+            }}
+          />
+        </noscript>
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main>{children}</main>
