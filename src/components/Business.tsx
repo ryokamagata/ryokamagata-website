@@ -79,6 +79,26 @@ export default function Business() {
                   {t(`items.${key}.description`)}
                 </p>
 
+                {key === "salon" && (
+                  <div className="mt-5 space-y-3 border-t border-charcoal/5 dark:border-white/5 pt-4">
+                    {(["0", "1", "2", "3"] as const).map((idx) => (
+                      <div key={idx}>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-sm font-medium text-charcoal dark:text-white" style={{ fontFamily: "var(--font-cormorant)" }}>
+                            {t(`items.salon.brands.${idx}.name`)}
+                          </span>
+                          <span className="text-[10px] tracking-wider text-gold">
+                            {t(`items.salon.brands.${idx}.label`)}
+                          </span>
+                        </div>
+                        <p className="text-xs leading-relaxed text-charcoal/60 dark:text-gray-400 mt-0.5">
+                          {t(`items.salon.brands.${idx}.description`)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <div className="absolute bottom-0 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-500" />
               </div>
             </AnimateOnScroll>

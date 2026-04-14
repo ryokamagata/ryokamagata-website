@@ -126,7 +126,29 @@
       "salon": {
         "name": "AITOKYO",
         "category": "Salon",
-        "description": "Hair salons across Tokyo, Yokohama & Nagoya. 8 direct, 2 brand-share, 1 eyelash-eyebrow — 11 total locations. 4.91 review rating, 73%+ repeat rate. Full-service salon brand for both men and women"
+        "description": "Hair salons across Tokyo, Yokohama & Nagoya. 8 direct, 2 brand-share, 1 eyelash-eyebrow — 11 total locations. 4.91 review rating, 73%+ repeat rate. Full-service salon brand for both men and women",
+        "brands": [
+          {
+            "name": "AI TOKYO -MEN-",
+            "label": "Men's Brand",
+            "description": "Men's specialist hair salon. Bone-structure corrective cuts, perms, and eyebrow grooming — designed to help men look their best. Expanding across Shibuya, Yokohama, and Nagoya"
+          },
+          {
+            "name": "AI TOKYO hair",
+            "label": "Ladies' Brand",
+            "description": "Trend-forward ladies' salon focused on reproducibility. Specializing in color, straightening, and hair quality improvement — proposing hair design that fits your lifestyle"
+          },
+          {
+            "name": "AITOKYO +",
+            "label": "Brand Share",
+            "description": "A new format sharing AITOKYO's brand power, customer acquisition, and training know-how with independent stylists and salon owners. Low-risk, high-quality expansion model"
+          },
+          {
+            "name": "ams by AI TOKYO",
+            "label": "Eyelash & Eyebrow",
+            "description": "Specialist salon for lash perms, extensions, and eyebrow styling. Leveraging AITOKYO's beauty expertise for total eye beauty"
+          }
+        ]
       },
       "product": {
         "name": "P.B Product",
