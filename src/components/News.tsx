@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale } from "next-intl";
 import SectionHeading from "./SectionHeading";
 import AnimateOnScroll from "./AnimateOnScroll";
 

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "trailingSlash": false,
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path((?!_next|_vercel|api).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.ryokamagata.com"
+        }
+      ],
+      "destination": "https://ryokamagata.com/:path",
+      "permanent": true
+    }
+  ]
+}

@@ -8,90 +8,99 @@ export default function Hero() {
   const t = useTranslations("hero");
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Particle animation
+  // Particle animation - wrapped in try/catch for in-app browser compatibility
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    try {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      if (typeof window.requestAnimationFrame !== "function") return;
 
-    let animationId: number;
-    const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number; life: number }[] = [];
-    const maxParticles = 60;
+      let animationId: number;
+      let isActive = true;
+      const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number; life: number }[] = [];
+      const maxParticles = 60;
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
+      const resize = () => {
+        if (!isActive) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      };
+      resize();
+      window.addEventListener("resize", resize);
 
-    const createParticle = () => {
-      if (particles.length >= maxParticles) return;
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.3 + 0.05,
-        life: Math.random() * 200 + 100,
-      });
-    };
+      const createParticle = () => {
+        if (particles.length >= maxParticles) return;
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          size: Math.random() * 1.5 + 0.5,
+          opacity: Math.random() * 0.3 + 0.05,
+          life: Math.random() * 200 + 100,
+        });
+      };
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const animate = () => {
+        if (!isActive) return;
+        try {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Create new particles
-      if (Math.random() > 0.92) createParticle();
+          if (Math.random() > 0.92) createParticle();
 
-      // Update and draw particles
-      for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.life--;
+          for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life--;
 
-        if (p.life <= 0 || p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
-          particles.splice(i, 1);
-          continue;
-        }
+            if (p.life <= 0 || p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
+              particles.splice(i, 1);
+              continue;
+            }
 
-        const fadeOut = p.life < 30 ? p.life / 30 : 1;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(197, 165, 90, ${p.opacity * fadeOut})`;
-        ctx.fill();
-      }
-
-      // Draw subtle connecting lines between nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150) {
+            const fadeOut = p.life < 30 ? p.life / 30 : 1;
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(197, 165, 90, ${0.03 * (1 - dist / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(197, 165, 90, ${p.opacity * fadeOut})`;
+            ctx.fill();
           }
+
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 150) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(197, 165, 90, ${0.03 * (1 - dist / 150)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+              }
+            }
+          }
+
+          animationId = requestAnimationFrame(animate);
+        } catch {
+          // Silently fail - particle animation is decorative
         }
-      }
+      };
 
-      animationId = requestAnimationFrame(animate);
-    };
+      for (let i = 0; i < 30; i++) createParticle();
+      animate();
 
-    // Seed initial particles
-    for (let i = 0; i < 30; i++) createParticle();
-    animate();
-
-    return () => {
-      window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animationId);
-    };
+      return () => {
+        isActive = false;
+        window.removeEventListener("resize", resize);
+        cancelAnimationFrame(animationId);
+      };
+    } catch {
+      // Canvas animation not supported in this browser - graceful degradation
+    }
   }, []);
 
   return (

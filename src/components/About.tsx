@@ -15,6 +15,13 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Fallback for browsers without IntersectionObserver (some in-app browsers)
+    if (typeof IntersectionObserver === "undefined") {
+      const t = window.setTimeout(() => setStarted(true), 0);
+      return () => window.clearTimeout(t);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started) {
@@ -70,7 +77,15 @@ export default function About() {
   const timelineItems = showAllTimeline ? allItems : allItems.slice(0, TIMELINE_INITIAL);
   const hasMore = allItems.length > TIMELINE_INITIAL && !showAllTimeline;
 
-  let lastYear = "";
+  // Pre-compute which items should display their year (avoids mid-render mutation)
+  const showYearFlags: boolean[] = [];
+  {
+    let prevYear = "";
+    for (const item of timelineItems) {
+      showYearFlags.push(item.year !== prevYear);
+      prevYear = item.year;
+    }
+  }
 
   return (
     <section id="about" className="py-24 sm:py-32 lg:py-40">
@@ -124,8 +139,7 @@ export default function About() {
 
             <div className="space-y-5">
               {timelineItems.map((item: TimelineItem, i: number) => {
-                const showYear = item.year !== lastYear;
-                lastYear = item.year;
+                const showYear = showYearFlags[i];
 
                 return (
                   <AnimateOnScroll key={`tl-${i}`} delay={i * 40}>
