@@ -70,8 +70,6 @@ export default function About() {
   const timelineItems = showAllTimeline ? allItems : allItems.slice(0, TIMELINE_INITIAL);
   const hasMore = allItems.length > TIMELINE_INITIAL && !showAllTimeline;
 
-  let lastYear = "";
-
   return (
     <section id="about" className="py-24 sm:py-32 lg:py-40">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
@@ -124,8 +122,7 @@ export default function About() {
 
             <div className="space-y-5">
               {timelineItems.map((item: TimelineItem, i: number) => {
-                const showYear = item.year !== lastYear;
-                lastYear = item.year;
+                const showYear = i === 0 || item.year !== timelineItems[i - 1].year;
 
                 return (
                   <AnimateOnScroll key={`tl-${i}`} delay={i * 40}>
